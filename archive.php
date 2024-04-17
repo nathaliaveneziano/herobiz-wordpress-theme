@@ -29,6 +29,9 @@ get_header();
         'prev_text'  => esc_html__('Prev', 'herobiz'),
         'next_text'  => esc_html__('Next', 'herobiz'),
       ));
+
+    else :
+      get_template_part('template-parts/page/content', 'none');
       ?>
     <?php endif; ?>
   </main>
