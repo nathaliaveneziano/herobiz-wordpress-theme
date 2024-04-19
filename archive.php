@@ -18,7 +18,7 @@ get_header();
         ?>
       </header>
 
-      <?php
+    <?php
       // Start the loop.
       while (have_posts()) :
         the_post();
@@ -32,9 +32,11 @@ get_header();
 
     else :
       get_template_part('template-parts/page/content', 'none');
-      ?>
-    <?php endif; ?>
+    endif;
+    ?>
   </main>
+
+  <?php get_sidebar(); ?>
 </div>
 
 <?php
