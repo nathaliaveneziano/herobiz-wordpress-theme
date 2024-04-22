@@ -4,7 +4,7 @@
  * Single page template.
  * @package HeroBiz
  */
-
+echo get_post_format();
 get_header();
 ?>
 
@@ -13,7 +13,7 @@ get_header();
     <?php
     while (have_posts()) :
       the_post();
-      get_template_part('template-parts/post/content');
+      get_template_part('template-parts/post/content', get_post_format());
     endwhile;
 
     // If comments are open then we can show the comments template
