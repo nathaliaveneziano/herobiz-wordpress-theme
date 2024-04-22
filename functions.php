@@ -5,7 +5,7 @@
  * @package HeroBiz
  */
 
- if (!function_exists('herobiz_setup')) {
+if (!function_exists('herobiz_setup')) {
   /**
    * Sets up theme defaults and registers support for various WordPress features.
    * 
@@ -138,12 +138,21 @@ add_action('widgets_init', 'herobiz_sidebar_widget_init');
 /**
  * Enqueue public scripts and styles.
  */
-function herobiz_public_scripts() {}
-add_action( 'wp_enqueue_scripts', 'herobiz_public_scripts' );
+function herobiz_public_scripts()
+{
+  // Styles
+  wp_enqueue_style('default', get_template_directory_uri() . '/assets/css/default.css', [], wp_rand(), 'all');
+  wp_enqueue_style('main', get_template_directory_uri() . '/assets/css/main.css', [], wp_rand(), 'all');
+
+  // Scripts
+  wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', ['jquery'], wp_rand(), true);
+}
+add_action('wp_enqueue_scripts', 'herobiz_public_scripts');
 
 /**
  * Enqueue admin scripts and styles.
  */
-function herobiz_admin_scripts() {}
-add_action( 'admin_enqueue_scripts', 'herobiz_admin_scripts' );
-
+function herobiz_admin_scripts()
+{
+}
+add_action('admin_enqueue_scripts', 'herobiz_admin_scripts');
